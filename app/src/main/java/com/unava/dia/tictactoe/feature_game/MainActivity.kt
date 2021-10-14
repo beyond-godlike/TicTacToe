@@ -4,16 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.unava.dia.tictactoe.ui.theme.TicTacToeTheme
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.text.style.TextAlign
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,7 +23,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             TicTacToeTheme {
                 Scaffold() {
-                    Surface(color = MaterialTheme.colors.background) {
+                    Surface(
+                        color = MaterialTheme.colors.background,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .fillMaxHeight()
+                    ) {
                         GameField(board = viewModel.boardUi, onClick = viewModel::move)
                     }
                 }
@@ -38,7 +41,10 @@ class MainActivity : ComponentActivity() {
     fun AppPreview() {
         TicTacToeTheme {
             Scaffold() {
-                Surface(color = MaterialTheme.colors.background) {
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.Center
+                ) {
                     GameField(board = arrayListOf("X", "O", "X", "O", "O", "X", "", "X", "O")) {}
                 }
             }

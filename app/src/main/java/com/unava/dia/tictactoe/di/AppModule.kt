@@ -1,6 +1,6 @@
 package com.unava.dia.tictactoe.di
 
-import com.unava.dia.tictactoe.data.Game
+import com.unava.dia.tictactoe.feature_game.data.Game
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
