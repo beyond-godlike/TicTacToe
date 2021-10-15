@@ -22,17 +22,17 @@ fun GameField(board: ArrayList<String>, onClick: (Int) -> Unit) {
             .fillMaxWidth()
             .fillMaxHeight()
     ) {
-        Row(horizontalArrangement = Arrangement.Center) {
+        Row(horizontalArrangement = Arrangement.Center, modifier = Modifier.fillMaxWidth()) {
             GameButton(text = board[0]) { onClick(0) }
             GameButton(text = board[1]) { onClick(1) }
             GameButton(text = board[2]) { onClick(2) }
         }
-        Row(horizontalArrangement = Arrangement.Center) {
+        Row(horizontalArrangement = Arrangement.Center, modifier = Modifier.fillMaxWidth()) {
             GameButton(text = board[3]) { onClick(3) }
             GameButton(text = board[4]) { onClick(4) }
             GameButton(text = board[5]) { onClick(5) }
         }
-        Row(horizontalArrangement = Arrangement.Center) {
+        Row(horizontalArrangement = Arrangement.Center, modifier = Modifier.fillMaxWidth()) {
             GameButton(text = board[6]) { onClick(6) }
             GameButton(text = board[7]) { onClick(7) }
             GameButton(text = board[8]) { onClick(8) }

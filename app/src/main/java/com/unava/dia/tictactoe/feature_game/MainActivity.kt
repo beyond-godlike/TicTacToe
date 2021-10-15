@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TicTacToeTheme {
-                Scaffold() {
+                Scaffold(modifier = Modifier.fillMaxSize()) {
                     Surface(
                         color = MaterialTheme.colors.background,
                         modifier = Modifier
@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun AppPreview() {
         TicTacToeTheme {
-            Scaffold() {
+            Scaffold(modifier = Modifier.fillMaxSize()) {
                 Column(
                     modifier = Modifier.fillMaxSize(),
                     verticalArrangement = Arrangement.Center

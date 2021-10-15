@@ -66,11 +66,7 @@ class GameViewModel @Inject constructor(private val game: Game) : ViewModel() {
     private fun checkFinished(): Boolean {
         val winner: String? = game.isFinished()
         // если победитель null то проверяем на конец игры дальше а игра пока что не кончена
-        if (winner == "X") {
-            gameFinished(winner)
-            return true
-        }
-        if (winner == "O") {
+        if (winner == "X" || winner == "O") {
             gameFinished(winner)
             return true
         }

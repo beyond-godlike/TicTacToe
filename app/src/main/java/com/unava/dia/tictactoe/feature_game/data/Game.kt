@@ -115,16 +115,16 @@ class Game {
         // 20 21 22      7 8 9
 
         // по горизонтали
-        if (board[0] == board[1] && board[1] == board[2] && board[2] == currPlayer) board[0]
-        else if (board[3] == board[4] && board[4] == board[5] && board[3] == currPlayer) board[3]
-        else if (board[6] == board[7] && board[7] == board[8] && board[6] == currPlayer) board[6]
+        if (board[0] == board[1] && board[1] == board[2] && board[2] == currPlayer) return board[0]
+        else if (board[3] == board[4] && board[4] == board[5] && board[3] == currPlayer) return board[3]
+        else if (board[6] == board[7] && board[7] == board[8] && board[6] == currPlayer) return board[6]
         // по вертикали
-        else if (board[0] == board[3] && board[3] == board[6] && board[0] == currPlayer) board[0]
-        else if (board[1] == board[4] && board[4] == board[7] && board[1] == currPlayer) board[1]
-        else if (board[2] == board[5] && board[5] == board[8] && board[2] == currPlayer) board[2]
+        else if (board[0] == board[3] && board[3] == board[6] && board[0] == currPlayer) return board[0]
+        else if (board[1] == board[4] && board[4] == board[7] && board[1] == currPlayer) return board[1]
+        else if (board[2] == board[5] && board[5] == board[8] && board[2] == currPlayer) return board[2]
         // по диагонали
-        else if (board[2] == board[4] && board[4] == board[6] && board[2] == currPlayer) board[2]
-        else if (board[0] == board[4] && board[4] == board[8] && board[0] == currPlayer) board[0]
+        else if (board[2] == board[4] && board[4] == board[6] && board[2] == currPlayer) return board[2]
+        else if (board[0] == board[4] && board[4] == board[8] && board[0] == currPlayer) return board[0]
         return null
     }
 
