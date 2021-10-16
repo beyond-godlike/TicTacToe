@@ -4,12 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.unava.dia.tictactoe.ui.theme.TicTacToeTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -40,13 +42,15 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun AppPreview() {
         TicTacToeTheme {
-            Scaffold(modifier = Modifier.fillMaxSize()) {
+            //Scaffold(modifier = Modifier.fillMaxSize().background(Color.Cyan)) {
                 Column(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Color.LightGray),
                     verticalArrangement = Arrangement.Center
                 ) {
                     GameField(board = arrayListOf("X", "O", "X", "O", "O", "X", "", "X", "O")) {}
-                }
+                    // }
             }
         }
     }

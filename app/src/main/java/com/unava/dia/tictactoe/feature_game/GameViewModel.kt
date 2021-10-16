@@ -48,7 +48,7 @@ class GameViewModel @Inject constructor(private val game: Game) : ViewModel() {
     }
 
     private fun gameFinished(player: String) {
-        // show toast
+        isFinished = true
         newGame()
     }
 
