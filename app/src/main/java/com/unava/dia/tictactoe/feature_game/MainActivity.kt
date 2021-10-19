@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -23,15 +24,22 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val scaffoldState = rememberScaffoldState()
             TicTacToeTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) {
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    scaffoldState = scaffoldState
+                ) {
                     Surface(
                         color = MaterialTheme.colors.background,
                         modifier = Modifier
                             .fillMaxWidth()
                             .fillMaxHeight()
                     ) {
-                        GameField(board = viewModel.boardUi, onClick = viewModel::move)
+                        GameField(
+                            board = viewModel.boardUi,
+                            onClick = viewModel::move
+                        )
                     }
                 }
             }
@@ -49,9 +57,11 @@ class MainActivity : ComponentActivity() {
                         .background(Color.LightGray),
                     verticalArrangement = Arrangement.Center
                 ) {
-                    GameField(board = arrayListOf("X", "O", "X", "O", "O", "X", "", "X", "O")) {}
+                    GameField(
+                        board = arrayListOf("X", "O", "X", "O", "O", "X", "", "X", "O")
+                    ) {}
                     // }
-            }
+                }
         }
     }
 }

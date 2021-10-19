@@ -11,6 +11,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -23,25 +25,34 @@ fun GameField(board: ArrayList<String>, onClick: (Int) -> Unit) {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize(1f)
     ) {
         Row(horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth()) {
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth()
+        ) {
             GameButton(text = board[0]) { onClick(0) }
             GameButton(text = board[1]) { onClick(1) }
             GameButton(text = board[2]) { onClick(2) }
         }
         Row(horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth()) {
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth()
+        ) {
             GameButton(text = board[3]) { onClick(3) }
             GameButton(text = board[4]) { onClick(4) }
             GameButton(text = board[5]) { onClick(5) }
         }
         Row(horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth()) {
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth()
+        ) {
             GameButton(text = board[6]) { onClick(6) }
             GameButton(text = board[7]) { onClick(7) }
             GameButton(text = board[8]) { onClick(8) }
@@ -57,20 +68,26 @@ fun GameButton(text: String, onclick: () -> Unit) {
         .background(
             Brush.verticalGradient(colors = listOf(Blue2, Blue2))
         )
+        .fillMaxHeight()
     ) {
         TextButton(
             //shape = MaterialTheme.shapes.medium,
             //border = BorderStroke(1.dp, BlueStroke),
             onClick = onclick,
-            enabled = text.isBlank()
+            enabled = text.isBlank(),
+            modifier = Modifier.align(Alignment.Center)
         ) {
             Text(
                 text = text,
                 style = TextStyle(
                     textAlign = TextAlign.Center,
-                    fontSize = 35.sp
+                    fontSize = 35.sp,
+                    fontFamily = FontFamily.Default,
+                    fontStyle = FontStyle.Italic
                 ),
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier
+                    .padding(16.dp)
+                    .align(Alignment.CenterVertically)
             )
         }
     }
